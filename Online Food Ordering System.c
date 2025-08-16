@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-// -------------------- Menu --------------------
 struct Food {
     int id;
     char name[30];
@@ -16,7 +15,6 @@ struct Food {
 };
 int menuCount = 5;
 
-// -------------------- Cart --------------------
 struct CartNode {
     int id;
     char name[30];
@@ -26,7 +24,6 @@ struct CartNode {
 };
 struct CartNode* cartHead = NULL;
 
-// -------------------- Orders --------------------
 struct OrderNode {
     char details[200];
     struct OrderNode* next;
@@ -34,14 +31,12 @@ struct OrderNode {
 struct OrderNode* ordersFront = NULL;
 struct OrderNode* ordersRear = NULL;
 
-// -------------------- Canceled Items --------------------
 struct CanceledNode {
     char name[30];
     struct CanceledNode* next;
 };
 struct CanceledNode* canceledTop = NULL;
 
-// -------------------- User & Admin --------------------
 struct UserAccount {
     char username[20];
     char password[20];
@@ -52,7 +47,6 @@ struct AdminAccount {
     char password[20];
 } admin1 = {"admin", "1234"};
 
-// -------------------- Menu Functions --------------------
 void showMenu() {
     if(menuCount == 0) {
         printf("\nMenu is empty!\n");
@@ -101,7 +95,6 @@ void removeMenuItem() {
     if(!found) printf("Food ID not found!\n");
 }
 
-// -------------------- Cart Functions --------------------
 void addToCart() {
     int id, qty;
     showMenu();
@@ -210,7 +203,6 @@ void removeCartItem() {
     if(!found) printf("Food ID not found in cart!\n");
 }
 
-// -------------------- Orders --------------------
 void placeOrder() {
     if(cartHead == NULL) {
         printf("Cart is empty! Cannot place order.\n");
@@ -259,7 +251,6 @@ void showOrders() {
     }
 }
 
-// -------------------- User Menu --------------------
 void userMenu() {
     int choice;
     while(1) {
@@ -281,7 +272,6 @@ void userMenu() {
     }
 }
 
-// -------------------- Admin Panel --------------------
 void adminMenu() {
     int choice;
     while(1) {
@@ -313,8 +303,6 @@ void adminMenu() {
         }
     }
 }
-
-// -------------------- Login --------------------
 int loginUser() {
     char id[20], pass[20];
     printf("Enter User ID: ");
@@ -347,7 +335,6 @@ int loginAdmin() {
     }
 }
 
-// -------------------- Main Menu --------------------
 void mainMenu(){
     int choice;
     while(1) {
@@ -375,3 +362,4 @@ int main() {
     mainMenu();
     return 0;
 }
+
